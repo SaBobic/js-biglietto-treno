@@ -18,12 +18,16 @@ const age = parseInt(prompt('Quanti anni hai?', '20'));
 
 // 3. Validazione dei dati indicati dall'utente
 
-if (km < 1 || isNaN(km)){
+if ((km < 1 || isNaN(km)) && (age >=0)){
     alert("Chilometri non inseriti correttamente");
 }
 
-if (age < 0 || isNaN(age)){
+if ((age < 0 || isNaN(age)) && (km >=1)){
     alert("Anni non inseriti correttamente");
+}
+
+if ((km < 1 || isNaN(km)) && (age < 0 || isNaN(age))){
+    alert("Chilometri e anni non inseriti correttamente");
 }
 
 // 4. Dichiaro la variabile price per la tariffa piena
