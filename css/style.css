@@ -41,3 +41,7 @@ h2{
 .box-text{
     padding: 1rem;
 }
+
+.box-text p:last-of-type{
+    padding-top: 0.75rem;
+}

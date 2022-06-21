@@ -38,5 +38,13 @@ if (age >= 65){
 
 // 6- Limito a 2 le cifre decimali di price
 
-price = +price.toFixed(2);
+price = price.toFixed(2);
 console.log(price);
+
+// 7- Mostro il prezzo finale, esplicitando anche della riduzione ottenuta
+
+document.getElementById('km').innerText = km + " km";
+
+document.getElementById('age').innerText = age + " anni";
+
+document.getElementById('price').innerText = price + "€";
