@@ -18,51 +18,62 @@ const age = parseInt(prompt('Quanti anni hai?', '20'));
 
 // 3. Validazione dei dati indicati dall'utente
 
+let isValid = true;
+let errorMessage = "";
+
 if ((km < 1 || isNaN(km)) && (age >=0)){
-    alert("Chilometri non inseriti correttamente");
+    errorMessage = errorMessage + "Chilometri non inseriti correttamente";
+    isValid = false;
 }
 
 if ((age < 0 || isNaN(age)) && (km >=1)){
-    alert("Anni non inseriti correttamente");
+    errorMessage = errorMessage + "Anni non inseriti correttamente";
+    isValid = false;
 }
 
 if ((km < 1 || isNaN(km)) && (age < 0 || isNaN(age))){
-    alert("Chilometri e anni non inseriti correttamente");
+    errorMessage = errorMessage + "Chilometri e anni non inseriti correttamente";
+    isValid = false;
 }
 
-// 4. Dichiaro la variabile price per la tariffa piena
+if (isValid){
 
-let price = km*0.21;
+    // 4. Dichiaro la variabile price per la tariffa piena
+    
+    let price = km*0.21;
+    
+    // 5. Dichiaro la variabile newPrice per minorenni e over 65
 
-// 5. Dichiaro la variabile newPrice per minorenni e over 65
+    let newPrice;
 
-let newPrice;
+    if (age < 18){
+        newPrice = (price / 100) * 80;
+    }
 
-if (age < 18){
-    newPrice = (price / 100) * 80;
-}
+    if (age >= 65){
+        newPrice = (price / 100) * 60;
+    }
 
-if (age >= 65){
-    newPrice = (price / 100) * 60;
-}
+    // 6. Limito a 2 le cifre decimali di price e newPrice
 
-// 6. Limito a 2 le cifre decimali di price e newPrice
+    price = price.toFixed(2);
 
-price = price.toFixed(2);
+    if (!isNaN(newPrice)){
+        newPrice = newPrice.toFixed(2);
+    }
 
-if (!isNaN(newPrice)){
-    newPrice = newPrice.toFixed(2);
-}
+    // 7. Mostro dati inseriti e prezzo finale su schermo, esplicitando anche la riduzione ottenuta
 
-// 7. Mostro dati inseriti e prezzo finale su schermo, esplicitando anche la riduzione ottenuta
+    document.getElementById('km').innerText = km + " km";
 
-document.getElementById('km').innerText = km + " km";
+    document.getElementById('age').innerText = age + " anni";
 
-document.getElementById('age').innerText = age + " anni";
-
-if ((age < 18) || (age >= 65)){
-    document.getElementById('old-price').innerText = price + "€";
-    document.getElementById('price').innerText = newPrice + "€";
+    if ((age < 18) || (age >= 65)){
+        document.getElementById('old-price').innerText = price + "€";''
+        document.getElementById('price').innerText = newPrice + "€";
+    } else {
+        document.getElementById('price').innerText = price + "€";
+    }
 } else {
-    document.getElementById('price').innerText = price + "€";
+    alert(errorMessage);
 }
