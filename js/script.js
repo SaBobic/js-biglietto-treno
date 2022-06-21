@@ -36,8 +36,8 @@ if (age >= 65){
 
 // 6- Limito a 2 le cifre decimali di price
 
-// price = price.toFixed(2);
-// newPrice = newPrice.toFixed(2);
+price = price.toFixed(2);
+newPrice = newPrice.toFixed(2);
 
 // 7- Mostro il prezzo finale, esplicitando anche della riduzione ottenuta
 
