@@ -19,20 +19,20 @@ const age = parseInt(prompt('Quanti anni hai?', '20'));
 // 3. Validazione dei dati indicati dall'utente
 
 let isValid = true;
-let errorMessage = "";
+let errorMessage;
 
 if ((km < 1 || isNaN(km)) && (age >=0)){
-    errorMessage = errorMessage + "Chilometri non inseriti correttamente";
+    errorMessage = "Chilometri non inseriti correttamente";
     isValid = false;
 }
 
 if ((age < 0 || isNaN(age)) && (km >=1)){
-    errorMessage = errorMessage + "Anni non inseriti correttamente";
+    errorMessage = "Anni non inseriti correttamente";
     isValid = false;
 }
 
 if ((km < 1 || isNaN(km)) && (age < 0 || isNaN(age))){
-    errorMessage = errorMessage + "Chilometri e anni non inseriti correttamente";
+    errorMessage = "Chilometri e anni non inseriti correttamente";
     isValid = false;
 }
 
@@ -69,7 +69,7 @@ if (isValid){
     document.getElementById('age').innerText = age + " anni";
 
     if ((age < 18) || (age >= 65)){
-        document.getElementById('old-price').innerText = price + "€";''
+        document.getElementById('old-price').innerText = price + "€";
         document.getElementById('price').innerText = newPrice + "€";
     } else {
         document.getElementById('price').innerText = price + "€";
