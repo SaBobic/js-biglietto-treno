@@ -45,3 +45,8 @@ h2{
 .box-text p:last-of-type{
     padding-top: 0.75rem;
 }
+
+#old-price{
+    text-decoration: line-through;
+    font-size: 0.9rem;
+}

@@ -10,36 +10,34 @@
 
 // 1- Chiedo quanti km deve percorrere
 
-const km = parseInt(prompt('Quanti chilometri devi percorrere?'));
-console.log("L'utente deve percorrere " + km + " chilometri");
+const km = parseInt(prompt('Quanti chilometri devi percorrere?', '125'));
 
 // 2- Chiedo quanti anni ha
 
 const age = parseInt(prompt('Quanti anni hai?'));
-console.log("L'utente ha " + age + " anni");
 
 // 3- Dichiaro la variabile age per la tariffa piena
 
 let price = km*0.21;
-console.log('La tariffa piena è di ' + price + "€");
 
 // 4- Modifico la variabile age per i minorenni
+
+let newPrice;
+
 if (age < 18){
-    price = (price / 100) * 80;
-    console.log('Tariffa speciale minorenni: ' + price + "€");
+    newPrice = (price / 100) * 80;
 }
 
 // 5- Modifico la variabile age per gli over 65
 
 if (age >= 65){
-    price = (price / 100) * 60;
-    console.log('Tariffa speciale anziani: ' + price + "€");
+    newPrice = (price / 100) * 60;
 }
 
 // 6- Limito a 2 le cifre decimali di price
 
-price = price.toFixed(2);
-console.log(price);
+// price = price.toFixed(2);
+// newPrice = newPrice.toFixed(2);
 
 // 7- Mostro il prezzo finale, esplicitando anche della riduzione ottenuta
 
@@ -47,4 +45,10 @@ document.getElementById('km').innerText = km + " km";
 
 document.getElementById('age').innerText = age + " anni";
 
-document.getElementById('price').innerText = price + "€";
+if ((age < 18) || (age >= 65)){
+    document.getElementById('old-price').innerText = price + "€";
+    document.getElementById('price').innerText = newPrice + "€";
+} else {
+    document.getElementById('price').innerText = price + "€";
+}
+
